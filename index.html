@@ -1,120 +1,792 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biografi Jaya Pejar | SMAN 1 Muaragembong</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Kisah Jaya Pejar dari SMAN 1 Muaragembong dalam mengembangkan kreativitas melalui konten animasi bertema kehidupan sekolah.">
+  <title>Jaya Pejar Kembangkan Animasi Sekolah | Kabar Pelajar</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f9;
-            color: #222;
-            line-height: 1.8;
-            margin: 0;
-            padding: 20px;
-        }
+  <style>
+    :root {
+      --primary: #bd1724;
+      --dark: #171717;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f4f5f7;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 25px;
-            border-radius: 14px;
-            box-shadow: 0 4px 18px #00000012;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        h1 {
-            color: #123c69;
-            line-height: 1.3;
-        }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--bg);
+      line-height: 1.75;
+    }
 
-        .meta {
-            color: #777;
-            font-size: 14px;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .foto {
-            width: 100%;
-            min-height: 180px;
-            background: #e8edf4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            color: #555;
-            margin: 20px 0;
-        }
+    .topbar {
+      background: #191919;
+      color: #fff;
+      font-size: 12px;
+      padding: 7px 5%;
+    }
 
-        h2 {
-            color: #123c69;
-        }
+    .topbar-inner,
+    .header-inner,
+    .nav-inner,
+    .container,
+    .footer-inner {
+      max-width: 1160px;
+      margin: auto;
+    }
 
-        footer {
-            border-top: 1px solid #ddd;
-            margin-top: 25px;
-            padding-top: 15px;
-            color: #777;
-            font-size: 13px;
-        }
-    </style>
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 30px;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .search {
+      display: flex;
+      max-width: 270px;
+      width: 100%;
+    }
+
+    .search input {
+      width: 100%;
+      min-width: 0;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 5px 0 0 5px;
+      outline-color: var(--primary);
+    }
+
+    .search button {
+      padding: 0 14px;
+      background: var(--primary);
+      color: white;
+      border: 0;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+
+    nav {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .nav-inner {
+      display: flex;
+      gap: 26px;
+      padding: 0 20px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    nav a {
+      padding: 12px 0;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffe0e0;
+    }
+
+    .container {
+      padding: 25px 20px 45px;
+    }
+
+    .breadcrumb {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .breadcrumb span {
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .article,
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .article {
+      padding: clamp(20px, 4vw, 38px);
+    }
+
+    .category {
+      display: inline-block;
+      background: #fff0f0;
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+
+    h1 {
+      font-size: clamp(27px, 4vw, 39px);
+      line-height: 1.25;
+      letter-spacing: -.8px;
+      margin: 17px 0;
+    }
+
+    .subtitle {
+      font-size: 17px;
+      color: #555;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      color: var(--muted);
+      font-size: 12px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero {
+      margin: 25px 0;
+      background: linear-gradient(135deg, #191919, #4c1720 65%, #bd1724);
+      color: white;
+      min-height: 240px;
+      padding: 30px;
+      border-radius: 7px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "JP";
+      position: absolute;
+      right: 10px;
+      top: -55px;
+      font-size: 220px;
+      line-height: 1;
+      font-weight: 900;
+      color: rgba(255,255,255,.07);
+    }
+
+    .hero small {
+      color: #ffc5ca;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+    }
+
+    .hero strong {
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.3;
+      max-width: 440px;
+      margin-top: 9px;
+      position: relative;
+    }
+
+    .caption {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: -17px;
+      margin-bottom: 25px;
+    }
+
+    .article p {
+      font-size: 16px;
+      margin: 0 0 19px;
+      color: #292929;
+    }
+
+    .article h2 {
+      font-size: 23px;
+      line-height: 1.4;
+      margin: 30px 0 14px;
+      padding-left: 12px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .quote {
+      border-left: 4px solid var(--primary);
+      background: #f9f9f9;
+      padding: 18px 20px;
+      margin: 25px 0;
+      font-size: 17px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .quote small {
+      display: block;
+      font-size: 12px;
+      font-weight: normal;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .tags span {
+      background: #f0f1f3;
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 12px;
+      color: #444;
+    }
+
+    .share {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .share button {
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: white;
+      padding: 9px 13px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .share button:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .sidebar-card {
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-title {
+      font-size: 17px;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+
+    .popular-item {
+      display: flex;
+      gap: 12px;
+      margin: 15px 0;
+      align-items: flex-start;
+    }
+
+    .number {
+      color: var(--primary);
+      font-size: 25px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .popular-item p {
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    .sidebar-card > p {
+      font-size: 13px;
+      color: #555;
+    }
+
+    .related {
+      margin-top: 25px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .related h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .related-item {
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .related-item small {
+      display: block;
+      color: var(--primary);
+      font-size: 10px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    footer {
+      background: #191919;
+      color: white;
+      padding: 35px 20px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer p {
+      color: #bdbdbd;
+      font-size: 12px;
+      margin-top: 9px;
+    }
+
+    .editor-note {
+      font-size: 12px;
+      background: #fff8e8;
+      border: 1px solid #f2dfad;
+      border-radius: 6px;
+      padding: 13px;
+      color: #674e16;
+      margin-top: 25px;
+    }
+
+    @media (max-width: 800px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+      }
+
+      .sidebar-card {
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .search {
+        max-width: 100%;
+      }
+
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article {
+        padding: 20px 17px;
+      }
+
+      .hero {
+        min-height: 205px;
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <main class="container">
-        <h1>Mengenal Jaya Pejar, Sosok Pelajar dari SMAN 1 Muaragembong</h1>
 
-        <p class="meta">
-            Profil Pelajar | SMAN 1 Muaragembong
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span>Portal Informasi dan Inspirasi Pelajar Indonesia</span>
+      <span id="today">Kabar Pelajar</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <div>
+        <a class="logo" href="#" aria-label="Kabar Pelajar Beranda">
+          KABAR<span>PELAJAR</span>
+        </a>
+        <div class="tagline">Muda Berkarya, Indonesia Bercerita.</div>
+      </div>
+
+      <form class="search" id="searchForm">
+        <input id="searchInput" type="search"
+          placeholder="Cari berita..." aria-label="Cari berita">
+        <button type="submit">Cari</button>
+      </form>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#">BERANDA</a>
+      <a href="#berita">BERITA</a>
+      <a href="#pendidikan">PENDIDIKAN</a>
+      <a href="#teknologi">TEKNOLOGI</a>
+      <a href="#kreativitas">KREATIVITAS</a>
+      <a href="#tentang">TENTANG KAMI</a>
+    </div>
+  </nav>
+
+  <main class="container" id="berita">
+    <div class="breadcrumb">
+      Beranda / Pendidikan / <span>Kisah Inspiratif Pelajar</span>
+    </div>
+
+    <div class="layout">
+      <article class="article">
+        <span class="category">Inspirasi Pelajar</span>
+
+        <h1>Dari Bangku Sekolah, Jaya Pejar Kembangkan Kreativitas Lewat Konten Animasi</h1>
+
+        <p class="subtitle">
+          Berawal dari ketertarikan terhadap dunia digital, Jaya Pejar,
+          pelajar SMAN 1 Muaragembong, mengangkat gagasan tentang kehidupan
+          sekolah melalui karya animasi yang kreatif dan dekat dengan
+          keseharian generasi muda.
         </p>
 
-        <div class="foto">
-            Foto Jaya Pejar
+        <div class="meta">
+          <span>Oleh: Redaksi Kabar Pelajar</span>
+          <span id="publishDate">11 Oktober 2026</span>
+          <span>Rubrik: Pendidikan</span>
+        </div>
+
+        <div class="hero" role="img"
+          aria-label="Ilustrasi berita tentang kreativitas animasi pelajar">
+          <small>Pelajar • Kreativitas • Teknologi</small>
+          <strong>Ide sederhana, cerita sekolah, dan semangat berkarya di dunia digital.</strong>
+        </div>
+
+        <div class="caption">
+          Ilustrasi editorial Kabar Pelajar. Bukan foto dokumentasi tokoh.
         </div>
 
         <p>
-            <strong>Jaya Pejar</strong> merupakan sosok yang
-            diperkenalkan dalam profil pelajar SMAN 1 Muaragembong.
-            Melalui kisah dan perjalanan pendidikannya, profil ini
-            dapat menjadi sarana untuk mengenal lebih dekat kehidupan
-            pelajar serta aktivitasnya di lingkungan sekolah.
+          <strong>MUARAG E M B O N G</strong> — Dunia digital membuka
+          kesempatan bagi pelajar untuk menyalurkan ide, mengembangkan
+          keterampilan, dan menyampaikan cerita melalui berbagai media.
+          Salah satu bidang yang menarik perhatian generasi muda adalah
+          animasi, yang mampu menggabungkan cerita, visual, dan teknologi
+          menjadi sebuah karya yang menghibur.
         </p>
-
-        <h2>Latar Belakang Pendidikan</h2>
 
         <p>
-            Sebagai pelajar SMAN 1 Muaragembong, perjalanan pendidikan
-            menjadi salah satu bagian penting dalam membangun
-            pengetahuan, pengalaman, dan keterampilan. Lingkungan
-            sekolah juga menjadi tempat untuk mengembangkan potensi
-            diri, memperluas pertemanan, serta mempersiapkan masa depan.
+          Jaya Pejar, pelajar SMAN 1 Muaragembong, diangkat dalam artikel
+          ini sebagai sosok pelajar kreatif yang mengembangkan gagasan
+          pembuatan konten animasi bertema kehidupan sekolah. Cerita tentang
+          kegiatan belajar, pertemanan, pengalaman di kelas, hingga momen
+          keseharian pelajar dapat menjadi sumber inspirasi untuk membangun
+          karakter dan alur cerita yang menarik.
         </p>
 
-        <h2>Aktivitas dan Perjalanan</h2>
+        <h2>Berawal dari Ide dan Ketertarikan pada Animasi</h2>
 
         <p>
-            Kisah Jaya Pejar dapat dikembangkan melalui berbagai
-            pengalaman, kegiatan sekolah, prestasi, maupun aktivitas
-            lain yang benar-benar pernah dijalani. Informasi tersebut
-            akan membantu pembaca mengenal karakter, minat, dan
-            perjalanan hidupnya secara lebih lengkap.
+          Membuat konten animasi bukan sekadar menyusun gambar bergerak.
+          Prosesnya dapat melibatkan pencarian ide, penulisan naskah,
+          perancangan karakter, penyusunan dialog, pengaturan adegan,
+          hingga penyuntingan sebelum karya dipublikasikan.
         </p>
-
-        <h2>Harapan dan Masa Depan</h2>
 
         <p>
-            Perjalanan sebagai pelajar merupakan kesempatan untuk
-            terus belajar, memperbaiki diri, dan meraih cita-cita.
-            Dengan semangat dan usaha yang konsisten, setiap pelajar
-            memiliki kesempatan untuk mengembangkan kemampuan dan
-            memberikan kontribusi positif bagi lingkungan sekitarnya.
+          Dengan menjadikan lingkungan sekolah sebagai sumber inspirasi,
+          seorang kreator pelajar dapat menghadirkan cerita yang terasa
+          dekat dengan penontonnya. Pengalaman sehari-hari bisa dikembangkan
+          menjadi kisah persahabatan, semangat belajar, kerja sama,
+          maupun pesan positif bagi sesama pelajar.
         </p>
 
-        <footer>
-            Artikel profil pelajar — SMAN 1 Muaragembong.
-            Informasi dapat dilengkapi sesuai fakta dan keterangan
-            yang telah dikonfirmasi.
-        </footer>
-    </main>
-</body>
-  </html>
+        <h2>Membangun Karya, Bukan Sekadar Mengejar Popularitas</h2>
+
+        <p>
+          Perjalanan menjadi kreator konten membutuhkan kemauan untuk
+          belajar dan memperbaiki kualitas karya. Konsistensi, kreativitas,
+          kemampuan bercerita, serta keterampilan menggunakan perangkat
+          digital merupakan beberapa hal yang dapat terus dikembangkan.
+        </p>
+
+        <p>
+          Bagi pelajar yang ingin mengikuti jejak kreator animasi,
+          langkah awal dapat dimulai dari proyek sederhana. Membuat
+          karakter orisinal, menulis cerita pendek, mempelajari teknik
+          animasi dasar, dan meminta masukan dari penonton bisa menjadi
+          bagian dari proses belajar.
+        </p>
+
+        <div class="quote">
+          Kreativitas tidak harus dimulai dengan peralatan mahal.
+          Ide yang menarik, kemauan belajar, dan ketekunan dapat menjadi
+          awal untuk menghasilkan karya yang bermakna.
+          <small>Pesan editorial tentang kreativitas pelajar</small>
+        </div>
+
+        <h2>Potensi Konten Animasi Bertema Kehidupan Sekolah</h2>
+
+        <p>
+          Cerita sekolah memiliki ruang kreativitas yang luas. Karakter
+          yang unik, dialog yang alami, konflik ringan, dan akhir cerita
+          yang memberikan pelajaran dapat membuat animasi lebih mudah
+          dipahami oleh penonton seusia pelajar.
+        </p>
+
+        <p>
+          Konten yang baik juga perlu memperhatikan etika. Kreator sebaiknya
+          menghindari penggunaan identitas atau foto orang tanpa izin,
+          tidak menjadikan seseorang sasaran perundungan, serta menggunakan
+          musik, gambar, dan aset digital yang memang boleh digunakan.
+        </p>
+
+        <h2>Menjadikan Pengalaman sebagai Inspirasi</h2>
+
+        <p>
+          Kisah Jaya Pejar menjadi tema yang dapat dikembangkan untuk
+          memperlihatkan bagaimana lingkungan pendidikan berpotensi
+          mendorong kreativitas generasi muda. Dengan dukungan lingkungan
+          yang positif dan kesempatan untuk belajar, pelajar dapat
+          mengeksplorasi minatnya sekaligus membangun keterampilan yang
+          bermanfaat di masa depan.
+        </p>
+
+        <p>
+          Keberhasilan sebuah karya tidak hanya diukur dari jumlah
+          penonton. Proses belajar, perkembangan kemampuan, orisinalitas
+          ide, dan dampak positif bagi orang lain juga merupakan bagian
+          penting dari perjalanan seorang kreator.
+        </p>
+
+        <div class="tags">
+          <span>#JayaPejar</span>
+          <span>#SMAN1Muaragembong</span>
+          <span>#KreatorAnimasi</span>
+          <span>#PelajarKreatif</span>
+          <span>#TeknologiDigital</span>
+        </div>
+
+        <div class="share">
+          <button type="button" id="shareButton">Bagikan Berita</button>
+          <button type="button" id="copyButton">Salin Judul</button>
+          <button type="button" onclick="window.print()">Cetak Artikel</button>
+        </div>
+
+        <div class="editor-note">
+          <strong>Catatan redaksi:</strong> Artikel ini merupakan draf
+          editorial. Sebelum diterbitkan sebagai berita faktual, lengkapi
+          kisah nyata Jaya Pejar, pencapaian yang dapat diverifikasi,
+          tautan kontennya, tanggal wawancara, dan kutipan langsung
+          yang telah dikonfirmasi. Jangan menampilkan klaim prestasi
+          atau pernyataan narasumber yang belum terverifikasi.
+        </div>
+      </article>
+
+      <aside class="sidebar">
+        <section class="sidebar-card">
+          <h2 class="sidebar-title">BERITA PILIHAN</h2>
+
+          <div class="popular-item">
+            <span class="number">01</span>
+            <p>Belajar Teknologi Digital Sejak Bangku Sekolah</p>
+          </div>
+
+          <div class="popular-item">
+            <span class="number">02</span>
+            <p>Mengembangkan Kreativitas melalui Karya Animasi</p>
+          </div>
+
+          <div class="popular-item">
+            <span class="number">03</span>
+            <p>Tips Menulis Cerita yang Menarik bagi Penonton</p>
+          </div>
+
+          <div class="popular-item">
+            <span class="number">04</span>
+            <p>Etika dan Keamanan dalam Membuat Konten Digital</p>
+          </div>
+        </section>
+
+        <section class="sidebar-card" id="tentang">
+          <h2 class="sidebar-title">TENTANG KABAR PELAJAR</h2>
+          <p>
+            Kabar Pelajar adalah konsep portal berita yang mengangkat
+            pendidikan, kreativitas, teknologi, dan cerita inspiratif
+            generasi muda.
+          </p>
+        </section>
+
+        <section class="sidebar-card" id="kreativitas">
+          <h2 class="sidebar-title">SOROTAN</h2>
+          <p>
+            <strong>Pelajar kreatif</strong><br>
+            Ide, karya, dan cerita dari lingkungan pendidikan.
+          </p>
+          <p style="margin-top:14px" id="teknologi">
+            <strong>Teknologi digital</strong><br>
+            Animasi, desain, pemrograman, dan media digital.
+          </p>
+          <p style="margin-top:14px" id="pendidikan">
+            <strong>Pendidikan</strong><br>
+            Inspirasi untuk belajar dan mengembangkan kemampuan.
+          </p>
+        </section>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>Berita Terkait</h2>
+      <div class="related-grid">
+        <a href="#kreativitas" class="related-item">
+          <small>Kreativitas</small>
+          Cara Memulai Proyek Animasi Pertamamu
+        </a>
+        <a href="#teknologi" class="related-item">
+          <small>Teknologi</small>
+          Mengenal Proses Pembuatan Konten Digital
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a class="logo" href="#">KABAR<span>PELAJAR</span></a>
+        <p>Muda Berkarya, Indonesia Bercerita.</p>
+      </div>
+      <div>
+        <strong>Informasi</strong>
+        <p>Portal berita pendidikan dan kreativitas.</p>
+        <p>&copy; <span id="year"></span> Kabar Pelajar.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const now = new Date();
+
+    document.getElementById("today").textContent =
+      now.toLocaleDateString("id-ID", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+
+    document.getElementById("year").textContent =
+      now.getFullYear();
+
+    document.getElementById("publishDate").textContent =
+      "Draf artikel";
+
+    document.getElementById("searchForm").addEventListener(
+      "submit",
+      function (event) {
+        event.preventDefault();
+
+        const keyword = document.getElementById("searchInput")
+          .value.trim().toLowerCase();
+
+        if (!keyword) {
+          alert("Masukkan kata kunci berita terlebih dahulu.");
+          return;
+        }
+
+        const articleText = document.querySelector(".article")
+          .innerText.toLowerCase();
+
+        if (articleText.includes(keyword)) {
+          document.querySelector(".article").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        } else {
+          alert("Kata kunci belum ditemukan pada artikel ini.");
+        }
+      }
+    );
+
+    document.getElementById("copyButton").addEventListener(
+      "click",
+      async function () {
+        const title = document.querySelector("h1").innerText;
+
+        try {
+          await navigat
